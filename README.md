@@ -15,7 +15,7 @@ Di challenge ini, ada 5 tugas yang perlu kamu selesaikan:
 Supaya challenge ini bisa kamu kerjakan dengan lancar, ikuti instruksi berikut:
 
 1. Fork repository ini.
-2. Kerjakan Tugas 1 sampai Tugas 3. Kamu boleh menggunakan tools apapun untuk get the jobs done. Hanya saja untuk styling kami merekomendasikan kamu untuk pakai [Tailwind CSS](https://tailwindcss.com/).
+2. Kerjakan Tugas 1 sampai Tugas 5. Kamu boleh menggunakan tools apapun untuk get the jobs done. Hanya saja untuk styling kami merekomendasikan kamu untuk pakai [Tailwind CSS](https://tailwindcss.com/).
 3. Setiap kali kamu selesai mengerjakan satu tugas, simpan hasilnya di folder yang sudah disediakan.
 4. Deploy repository hasil fork kamu ke GitHub Pages. Tujuannya supaya web yang kamu buat bisa langsung dipublish dan diakses secara online.
 5. Isi [formulir ini](https://forms.gle/gvcWyg15zpL1S2B66) untuk menandakan kamu sudah selesai mengerjakan challenge ini.
