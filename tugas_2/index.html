@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'figtree': ['Figtree', 'sans-serif'],
+          },
+          colors: {
+            'yellow-custom': 'hsl(47, 88%, 63%)',
+            'gray-500-custom': 'hsl(0, 0%, 42%)',
+            'gray-950-custom': 'hsl(0, 0%, 7%)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <title>Frontend Mentor | Blog preview card</title>
+</head>
+<body class="min-h-screen bg-yellow-custom font-figtree flex flex-col items-center justify-center p-5">
+  <main class="w-full max-w-7xl flex justify-center items-center flex-1">
+    <article class="bg-white rounded-[20px] p-6 max-w-[384px] border-2 border-gray-950-custom shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:shadow-[16px_16px_0_0_rgba(0,0,0,1)] transition-shadow duration-300">
+      <div class="mb-6">
+        <img src="./assets/images/illustration-article.svg" alt="Article illustration" class="w-full h-auto rounded-[10px]">
+      </div>
+      
+      <div class="mb-3">
+        <span class="inline-block bg-yellow-custom text-gray-950-custom text-sm font-extrabold px-3 py-1.5 rounded-md">
+          Learning
+        </span>
+      </div>
+      
+      <p class="text-[14px] text-gray-950-custom font-medium mb-3">
+        Published <time datetime="2023-12-21">21 Dec 2023</time>
+      </p>
+      
+      <h1 class="text-gray-950-custom text-[24px] font-extrabold mb-3 hover:text-yellow-custom transition-colors cursor-pointer">
+        HTML & CSS foundations
+      </h1>
+      
+      <p class="text-gray-500-custom text-[16px] font-medium leading-relaxed mb-6">
+        These languages are the backbone of every website, defining structure, content, and presentation.
+      </p>
+      
+      <div class="flex items-center gap-3">
+        <img src="./assets/images/image-avatar.webp" alt="Greg Hooper" class="w-10 h-10">
+        <p class="text-gray-950-custom text-[14px] font-extrabold">
+          Greg Hooper
+        </p>
+      </div>
+    </article>
+  </main>
+  
+  <div class="text-[11px] text-center mt-5 text-gray-950-custom">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="text-[hsl(228,45%,44%)] hover:underline focus:underline">Frontend Mentor</a>. 
+    Coded by <a href="#" class="text-[hsl(228,45%,44%)] hover:underline focus:underline">Aldo Lata Soba</a>.
+  </div>
+</body>
+</html>

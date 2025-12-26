@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'outfit': ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            'slate-300': 'hsl(212, 45%, 89%)',
+            'slate-500': 'hsl(216, 15%, 48%)',
+            'slate-900': 'hsl(218, 44%, 22%)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <title>Frontend Mentor | QR code component</title>
+</head>
+<body class="min-h-screen bg-slate-300 font-outfit flex flex-col items-center justify-center p-5">
+  <main class="w-full max-w-7xl flex justify-center items-center flex-1">
+    <div class="bg-white rounded-[20px] p-4 max-w-[320px] shadow-[0_25px_25px_rgba(0,0,0,0.0476518)]">
+      <div class="rounded-[10px] mb-6 overflow-hidden">
+        <img src="./images/image-qr-code.png" alt="QR code to visit Frontend Mentor" class="w-full h-auto block">
+      </div>
+      <div class="text-center px-4 pb-5">
+        <h1 class="text-slate-900 text-[22px] font-bold mb-4 leading-[1.27]">Improve your front-end skills by building projects</h1>
+        <p class="text-slate-500 text-[15px] font-normal leading-[1.5]">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+      </div>
+    </div>
+  </main>
+  
+  <div class="text-[11px] text-center mt-5 text-slate-500">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="text-[hsl(228,45%,44%)]">Frontend Mentor</a>. 
+    Coded by <a href="#" class="text-[hsl(228,45%,44%)]">Aldo Lata Soba</a>.
+  </div>
+</body>
+</html>

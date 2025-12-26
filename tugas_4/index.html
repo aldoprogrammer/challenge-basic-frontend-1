@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sora': ['Sora', 'sans-serif'],
+          },
+          colors: {
+            'neutral-900': 'hsl(0, 0%, 7%)',
+            'neutral-800': 'hsl(0, 0%, 15%)',
+            'neutral-500': 'hsl(240, 3%, 46%)',
+            'neutral-400': 'hsl(240, 1%, 59%)',
+            'blue-600': 'hsl(214, 100%, 55%)',
+            'blue-400': 'hsl(210, 100%, 65%)',
+            'red-500': 'hsl(354, 63%, 57%)',
+            'green-500': 'hsl(140, 63%, 57%)',
+            'yellow-400': 'hsl(49, 85%, 70%)',
+          }
+        }
+      }
+    }
+  </script>
+  <title>Frontend Mentor | Typing Speed Test</title>
+</head>
+
+<body class="min-h-screen bg-neutral-900 font-sora text-neutral-0 flex flex-col items-center justify-center p-4 md:p-8">
+  <div class="w-full max-w-4xl">
+    <!-- Header -->
+    <header class="mb-8 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-3 mb-1">
+          <img src="./assets/images/logo-large.svg" alt="Typing Speed Test" class="hidden md:block h-8">
+          <img src="./assets/images/logo-small.svg" alt="Typing Speed Test" class="md:hidden h-6">
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-base">
+        <img src="./assets/images/icon-personal-best.svg" alt="" class="w-5 h-5">
+        <span class="text-neutral-400">Personal best:</span>
+        <span id="personalBest" class="font-semibold text-white">--</span>
+        <span class="font-semibold text-white">WPM</span>
+      </div>
+    </header>
+
+    <!-- Stats and Controls Grid -->
+    <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Left Grid: Stats (shown when test active) -->
+      <div id="statsBar" class="hidden md:flex items-center gap-6 flex-wrap min-h-[60px]">
+        <div>
+          <span class="text-neutral-400 text-base">WPM:</span>
+          <span id="wpm" class="ml-2 font-semibold text-white">0</span>
+        </div>
+        <div>
+          <span class="text-neutral-400 text-base">Accuracy:</span>
+          <span id="accuracy" class="ml-2 font-semibold text-red-500">100%</span>
+        </div>
+        <div>
+          <span class="text-neutral-400 text-base">Time:</span>
+          <span id="time" class="ml-2 font-semibold text-yellow-400">0:00</span>
+        </div>
+      </div>
+      <!-- Right Grid: Controls (always visible) -->
+      <div class="flex flex-col md:flex-row gap-6">
+        <div class="flex-1">
+          <label class="block text-neutral-400 text-base mb-3 font-normal">Difficulty:</label>
+          <div class="flex gap-2">
+            <button id="difficulty-easy"
+              class="difficulty-btn flex-1 bg-neutral-800 border-2 border-neutral-500 rounded-lg px-3 py-1.5 text-sm font-semibold text-white hover:border-blue-400 transition-all cursor-pointer"
+              data-difficulty="easy">
+              Easy
+            </button>
+            <button id="difficulty-medium"
+              class="difficulty-btn flex-1 bg-neutral-800 border-2 border-neutral-500 rounded-lg px-3 py-1.5 text-sm font-semibold text-white hover:border-blue-400 transition-all cursor-pointer"
+              data-difficulty="medium">
+              Medium
+            </button>
+            <button id="difficulty-hard"
+              class="difficulty-btn flex-1 bg-neutral-800 border-2 border-blue-400 rounded-lg px-3 py-1.5 text-sm font-semibold text-white transition-all cursor-pointer"
+              data-difficulty="hard">
+              Hard
+            </button>
+          </div>
+        </div>
+        <div class="flex-1">
+          <label class="block text-neutral-400 text-base mb-3 font-normal">Mode:</label>
+          <div class="flex gap-2">
+            <button id="mode-timed"
+              class="mode-btn bg-neutral-800 border-2 border-blue-400 rounded-lg px-1 py-1.5 text-sm font-semibold text-white transition-all cursor-pointer"
+              data-mode="timed">
+              Timed (60s)
+            </button>
+            <button id="mode-passage"
+              class="mode-btn bg-neutral-800 border-2 border-neutral-500 rounded-lg px-1 py-1.5 text-sm font-semibold text-white hover:border-blue-400 transition-all cursor-pointer"
+              data-mode="passage">
+              Passage
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Test Area -->
+    <div id="testArea" class="bg-neutral-800 rounded-lg p-6 md:p-8 mb-6">
+      <div id="passageContainer" class="text-lg md:text-xl leading-relaxed min-h-[200px] cursor-text focus:outline-none"
+        tabindex="0" contenteditable="false">
+        <span id="passageText" class="text-neutral-400 whitespace-pre-wrap break-words"></span>
+      </div>
+      <div id="startPrompt" class="text-center py-8">
+        <button id="startBtn"
+          class="bg-blue-600 hover:bg-blue-400 text-white font-semibold px-8 py-3 rounded-lg mb-4 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-900">
+          Start Typing Test
+        </button>
+        <p class="text-neutral-400 text-base">Or click the text and start typing</p>
+      </div>
+    </div>
+
+    <!-- Restart Button -->
+    <div id="restartButtonContainer" class="hidden mb-6 flex justify-center">
+      <button id="restartBtn"
+        class="flex items-center gap-2 bg-neutral-800 border-2 border-neutral-500 rounded-lg px-6 py-3 text-sm font-semibold text-white hover:border-blue-400 transition-all cursor-pointer">
+        <img src="./assets/images/icon-restart.svg" alt="Restart" class="w-4 h-4">
+        <span>Restart Test</span>
+      </button>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultsModal"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div class="bg-neutral-800 rounded-lg p-8 max-w-md w-full relative">
+        <div id="confetti" class="hidden absolute inset-0 pointer-events-none">
+          <img src="./assets/images/pattern-confetti.svg" alt="" class="w-full h-full object-cover opacity-50">
+        </div>
+        <div class="relative z-10">
+          <div id="resultsHeader" class="text-center mb-6">
+            <h2 id="resultsTitle" class="text-2xl md:text-3xl font-bold mb-2">Test Complete!</h2>
+            <p id="resultsMessage" class="text-neutral-400 text-base">Solid run. Keep pushing to beat your high score.
+            </p>
+          </div>
+          <div class="space-y-4 mb-6">
+            <div class="flex justify-between items-center">
+              <span class="text-neutral-400 text-base">WPM:</span>
+              <span id="resultsWpm" class="font-semibold text-xl">0</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-neutral-400 text-base">Accuracy:</span>
+              <span id="resultsAccuracy" class="font-semibold text-xl">100%</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-neutral-400 text-base">Characters:</span>
+              <span id="resultsChars" class="font-semibold text-xl">0 / 0</span>
+            </div>
+          </div>
+          <button id="goAgainBtn"
+            class="w-full bg-blue-600 hover:bg-blue-400 text-white font-semibold px-8 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-800">
+            Go Again
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-[11px] text-center mt-8 text-neutral-400">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      class="text-blue-400 hover:underline">Frontend Mentor</a>.
+    Coded by <a href="#" class="text-blue-400 hover:underline">Aldo Lata Soba</a>.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

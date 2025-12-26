@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'bellefair': ['Bellefair', 'serif'],
+            'barlow-condensed': ['Barlow Condensed', 'sans-serif'],
+            'barlow': ['Barlow', 'sans-serif'],
+          },
+          colors: {
+            'space-dark': '#0B0D17',
+            'space-light': '#D0D6F9',
+            'space-white': '#FFFFFF',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    @media (max-width: 767px) {
+      body {
+        background-image: url('./assets/home/background-home-mobile.jpg');
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      body {
+        background-image: url('./assets/home/background-home-tablet.jpg');
+      }
+    }
+    @media (min-width: 1024px) {
+      body {
+        background-image: url('./assets/home/background-home-desktop.jpg');
+      }
+    }
+  </style>
+  <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body class="min-h-screen text-space-white font-barlow bg-space-dark">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-6 md:px-10 lg:px-14 lg:pt-10">
+    <div class="flex items-center">
+      <a href="index.html" class="cursor-pointer">
+        <img src="./assets/shared/logo.svg" alt="Space Tourism" class="w-10 h-10 md:w-12 md:h-12">
+      </a>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-8 bg-white bg-opacity-5 backdrop-blur-lg px-12 lg:px-20 py-8 relative">
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-px bg-white opacity-25"></div>
+      <a href="index.html" class="nav-link flex items-center gap-3 text-space-white border-b-2 border-space-white transition-all duration-300 pb-2 cursor-pointer font-barlow-condensed text-sm tracking-[2.7px]">
+        <span class="font-bold">00</span>
+        <span>HOME</span>
+      </a>
+      <a href="destination.html" class="nav-link flex items-center gap-3 text-space-light hover:text-space-white border-b-2 border-transparent hover:border-space-white transition-all duration-300 pb-2 cursor-pointer font-barlow-condensed text-sm tracking-[2.7px]">
+        <span class="font-bold">01</span>
+        <span>DESTINATION</span>
+      </a>
+      <a href="crew.html" class="nav-link flex items-center gap-3 text-space-light hover:text-space-white border-b-2 border-transparent hover:border-space-white transition-all duration-300 pb-2 cursor-pointer font-barlow-condensed text-sm tracking-[2.7px]">
+        <span class="font-bold">02</span>
+        <span>CREW</span>
+      </a>
+      <a href="technology.html" class="nav-link flex items-center gap-3 text-space-light hover:text-space-white border-b-2 border-transparent hover:border-space-white transition-all duration-300 pb-2 cursor-pointer font-barlow-condensed text-sm tracking-[2.7px]">
+        <span class="font-bold">03</span>
+        <span>TECHNOLOGY</span>
+      </a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="lg:hidden">
+      <img src="./assets/shared/icon-hamburger.svg" alt="Menu" id="hamburgerIcon" class="block">
+      <img src="./assets/shared/icon-close.svg" alt="Close" id="closeIcon" class="hidden">
+    </button>
+  </nav>
+  
+  <!-- Mobile Navigation -->
+  <div id="mobileMenu" class="hidden fixed inset-0 z-40 bg-space-dark bg-opacity-95 backdrop-blur-lg lg:hidden">
+    <div class="pt-32 px-8">
+      <a href="index.html" class="mobile-nav-link block py-4 text-space-white border-b border-space-light border-opacity-20 hover:text-space-light transition-colors cursor-pointer font-barlow-condensed text-base tracking-[2.7px]">
+        <span class="font-bold mr-3">00</span>
+        <span>HOME</span>
+      </a>
+      <a href="destination.html" class="mobile-nav-link block py-4 text-space-white border-b border-space-light border-opacity-20 hover:text-space-light transition-colors cursor-pointer font-barlow-condensed text-base tracking-[2.7px]">
+        <span class="font-bold mr-3">01</span>
+        <span>DESTINATION</span>
+      </a>
+      <a href="crew.html" class="mobile-nav-link block py-4 text-space-white border-b border-space-light border-opacity-20 hover:text-space-light transition-colors cursor-pointer font-barlow-condensed text-base tracking-[2.7px]">
+        <span class="font-bold mr-3">02</span>
+        <span>CREW</span>
+      </a>
+      <a href="technology.html" class="mobile-nav-link block py-4 text-space-white hover:text-space-light transition-colors cursor-pointer font-barlow-condensed text-base tracking-[2.7px]">
+        <span class="font-bold mr-3">03</span>
+        <span>TECHNOLOGY</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="pt-24 md:pt-32 lg:pt-40">
+    <!-- Home Page -->
+    <div class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-10 lg:px-20 gap-12 md:gap-20">
+      <div class="text-center md:text-left flex-1">
+        <h2 class="font-barlow-condensed text-base md:text-xl lg:text-2xl text-space-light tracking-widest mb-4">
+          SO, YOU WANT TO TRAVEL TO
+        </h2>
+        <h1 class="font-bellefair text-7xl md:text-9xl lg:text-[150px] mb-6">SPACE</h1>
+        <p class="text-space-light text-sm md:text-base lg:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
+          Let's face it; if you want to go to space, you might as well genuinely go to 
+          outer space and not hover kind of on the edge of it. Well sit back, and relax 
+          because we'll give you a truly out of this world experience!
+        </p>
+      </div>
+      <div class="flex-1 flex items-center justify-center">
+        <a href="destination.html" class="explore-btn w-36 h-36 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full bg-space-white text-space-dark font-bellefair text-xl md:text-2xl lg:text-3xl flex items-center justify-center hover:shadow-[0_0_0_60px_rgba(255,255,255,0.1)] transition-all duration-300">
+          EXPLORE
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

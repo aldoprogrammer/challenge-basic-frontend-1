@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+            'fraunces': ['Fraunces', 'serif'],
+          },
+          colors: {
+            'green-500-custom': 'hsl(158, 36%, 37%)',
+            'green-700-custom': 'hsl(158, 42%, 18%)',
+            'black-custom': 'hsl(212, 21%, 14%)',
+            'grey-custom': 'hsl(228, 12%, 48%)',
+            'cream-custom': 'hsl(30, 38%, 92%)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <title>Frontend Mentor | Product preview card component</title>
+</head>
+<body class="min-h-screen bg-cream-custom font-montserrat flex flex-col items-center justify-center p-5">
+  <main class="w-full max-w-7xl flex justify-center items-center flex-1">
+    <article class="bg-white rounded-[10px] overflow-hidden max-w-[600px] flex flex-col md:flex-row">
+      <!-- Product Image -->
+      <div class="w-full md:w-1/2">
+        <picture>
+          <source media="(min-width: 768px)" srcset="./images/image-product-desktop.jpg">
+          <img src="./images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum" class="w-full h-full object-cover">
+        </picture>
+      </div>
+      
+      <!-- Product Content -->
+      <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+        <p class="text-grey-custom text-xs font-medium tracking-[5px] uppercase mb-3">
+          Perfume
+        </p>
+        
+        <h1 class="font-fraunces text-black-custom text-[32px] md:text-[36px] font-bold leading-tight mb-4">
+          Gabrielle Essence Eau De Parfum
+        </h1>
+        
+        <p class="text-grey-custom text-sm font-medium leading-relaxed mb-6">
+          A floral, solar and voluptuous interpretation composed by Olivier Polge, 
+          Perfumer-Creator for the House of CHANEL.
+        </p>
+        
+        <div class="flex items-center gap-4 mb-6">
+          <span class="font-fraunces text-green-500-custom text-[32px] font-bold">
+            $149.99
+          </span>
+          <span class="text-grey-custom text-sm line-through">
+            $169.99
+          </span>
+        </div>
+        
+        <button class="w-full bg-green-500-custom hover:bg-green-700-custom text-white font-bold py-3.5 px-6 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500-custom focus:ring-offset-2">
+          <img src="./images/icon-cart.svg" alt="" class="w-4 h-4">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </main>
+  
+  <div class="text-[11px] text-center mt-5 text-black-custom">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="text-[hsl(228,45%,44%)] hover:underline focus:underline">Frontend Mentor</a>. 
+    Coded by <a href="#" class="text-[hsl(228,45%,44%)] hover:underline focus:underline">Aldo Lata Soba</a>.
+  </div>
+</body>
+</html>
