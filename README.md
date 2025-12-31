@@ -9,9 +9,6 @@ Tujuan challenge ini adalah melatih kemampuan membangun tampilan web statis yang
 ## 🚀 Live Demo
 Hasil pengerjaan dapat diakses di:
 
-- **Homepage**  
-  https://aldoprogrammer.github.io/challenge-basic-frontend-1/
-
 - **Tugas 1**  
   https://aldoprogrammer.github.io/challenge-basic-frontend-1/tugas_1/
 
