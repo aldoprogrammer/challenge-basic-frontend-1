@@ -50,7 +50,7 @@ Challenge diambil dari Frontend Mentor:
 - HTML5
 - CSS3
 - JavaScript
-- (Optional) Tailwind CSS
+- Tailwind CSS
 - GitHub Pages (via GitHub Actions)
 
 ---
